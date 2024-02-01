@@ -23,6 +23,6 @@ console.log(notes);
 console.log("isEmail: " + validator.isEmail('kali@xyz.com'));
 console.log("isURL: " + validator.isURL('https://nodejs.org/docs/latest/api/'));
 
-const colorNote = chalk.green(notes);
+const colorNote = chalk.blue.inverse.bold(notes);
 console.log(colorNote);
 
