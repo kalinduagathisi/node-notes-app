@@ -2,4 +2,9 @@ console.log('util.js');
 
 const name = 'Alistor';
 
-module.exports = name;
+const add = function (a, b) {
+    return a+b;
+}
+
+// module.exports = name;
+module.exports = add;
