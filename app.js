@@ -18,3 +18,4 @@ console.log(sum);
 console.log(notes);
 console.log("isEmail: " + validator.isEmail('kali@xyz.com'));
 console.log("isURL: " + validator.isURL('https://nodejs.org/docs/latest/api/'));
+
