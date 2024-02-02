@@ -20,9 +20,21 @@ const notes = getNotes();
 
 console.log(sum);
 console.log(notes);
-console.log("isEmail: " + validator.isEmail('kali@xyz.com'));
-console.log("isURL: " + validator.isURL('https://nodejs.org/docs/latest/api/'));
+// console.log("isEmail: " + validator.isEmail('kali@xyz.com'));
+// console.log("isURL: " + validator.isURL('https://nodejs.org/docs/latest/api/'));
 
-const colorNote = chalk.blue.inverse.bold(notes);
-console.log(colorNote);
+// const colorNote = chalk.blue.inverse.bold(notes);
+// console.log(colorNote);
 
+// get user input -> array item 3 (index 2)
+const command = process.argv[2];
+
+console.log(process.argv);
+
+if (command === 'add'){
+    console.log('Adding note!');
+}
+
+else if (command === 'remove'){
+    console.log('Removing note!');
+}
