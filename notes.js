@@ -1,4 +1,5 @@
 const fs = require("fs");
+const chalk = require("chalk");
 // const getNotes = function () {
 //     return "fetching notes..";
 // }
@@ -40,10 +41,27 @@ const addNote = function (title, body) {
     }
 }
 
+const removeNote = function (title) {
+    const notes = loadNotes();
+    const notesToKeep = notes.filter(function (note) {
+        return note.title !== title;
+    })
+    saveNotes(notesToKeep);
+
+   if (notes.length !== notesToKeep.length){
+       console.log(chalk.green("Note with the title "+ title + " successfully removed!"));
+   }
+
+   else {
+       console.log(chalk.red("Note with the given title doesn't exists!"));
+   }
+}
+
 // module.exports = getNotes;
 // module.exports = addNote;
 
 module.exports = {
-    addNote: addNote
+    addNote: addNote,
+    removeNote: removeNote
 }
 
