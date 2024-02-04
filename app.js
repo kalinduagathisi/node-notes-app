@@ -9,15 +9,15 @@ const fs = require('fs');
 
 // const name = require('./util.js');
 const add = require('./util.js');
-const getNotes = require('./notes.js');
+const notes = require('./notes.js');
 const validator = require('validator');
 const chalk = require('chalk');
 const yargs = require('yargs');
 
 
 
-const sum = add(1, 4);
-const notes = getNotes();
+// const sum = add(1, 4);
+// const notes = getNotes();
 
 // console.log(sum);
 // console.log(notes);
@@ -62,7 +62,8 @@ yargs.command({
         }
     },
     handler: function (argv) {
-        // console.log('Adding a new note!')
+        console.log('Adding a new note!')
+        notes.addNote(argv.title, argv.body);
         console.log('Title: '+ argv.title);
         console.log('Body: '+ argv.body);
     }
