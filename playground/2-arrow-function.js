@@ -18,7 +18,7 @@ const event = {
     name: "Birthday Party",
     guestList: ["Alistor", "Sylvester", "Torinton"],
 
-    // arrow functions can be used in these type of scenarios because, they do not bind this value.
+    // arrow functions can't be used in these type of scenarios because, they do not bind 'this' value.
     // so what we can use is a standard function.
     // following is a standard function in a special syntax! (ES6 method definition)
     printGuestList() {

@@ -61,7 +61,9 @@ yargs.command({
             type: 'string',
         }
     },
-    handler: function (argv) {
+
+    // ES6 method definition
+    handler(argv) {
         console.log('Adding a new note!')
         notes.addNote(argv.title, argv.body);
         console.log('Title: '+ argv.title);
@@ -81,7 +83,7 @@ yargs.command({
         }
     },
 
-    handler: function (argv) {
+    handler(argv) {
         console.log('Removing a note!')
         notes.removeNote(argv.title);
     }
@@ -100,7 +102,7 @@ yargs.command({
 yargs.command({
     command: 'list',
     describe: 'List all notes',
-    handler: function () {
+    handler() {
         console.log('Fetching all notes!')
     }
 })
