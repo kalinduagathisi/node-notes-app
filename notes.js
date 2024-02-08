@@ -23,26 +23,43 @@ const saveNotes = (notes) => {
 const addNote = (title, body) => {
     const notes = loadNotes();
 
+    // const duplicateNotes = notes.filter(function (note) {
+    //     return note.title === title;
+    // })
+
     // handling duplicates by title
     const duplicateNotes = notes.filter((note) => {
         return note.title === title;
     })
 
-    // const duplicateNotes = notes.filter(function (note) {
-    //     return note.title === title;
-    // })
+    // finding one exact note
+    const duplicateNote = notes.find((note) => note.title === title);
 
-    if (duplicateNotes.length === 0){
+    if (!duplicateNote){
         notes.push({
             title: title,
-            body: body
+            body: body,
         })
         saveNotes(notes);
-        console.log(notes);
+        console.log(chalk.green.inverse("New note added!"));
     }
+
     else {
-        console.log("Note with the same title already exists!");
+        console.log(chalk.red.inverse("Note with the given title already exists!"));
     }
+
+
+    // if (duplicateNotes.length === 0){
+    //     notes.push({
+    //         title: title,
+    //         body: body
+    //     })
+    //     saveNotes(notes);
+    //     console.log(notes);
+    // }
+    // else {
+    //     console.log("Note with the same title already exists!");
+    // }
 }
 
 const removeNote = (title) => {
@@ -69,6 +86,23 @@ const listNotes = () => {
     })
 }
 
+const readNote = (title) => {
+    const notes = loadNotes();
+
+    // finding one exact note
+    const readNote = notes.find((note) => note.title === title);
+
+    if (!readNote){
+        console.log(chalk.red.inverse("Note not found!"));
+    }
+
+    else {
+        console.log(chalk.green.inverse("Note found!"));
+        console.log("title: " + readNote.title);
+        console.log("body: " + readNote.body);
+    }
+}
+
 // module.exports = getNotes;
 // module.exports = addNote;
 
@@ -76,5 +110,6 @@ module.exports = {
     addNote: addNote,
     removeNote: removeNote,
     listNotes: listNotes,
+    readNote: readNote,
 }
 
