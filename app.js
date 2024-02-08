@@ -103,7 +103,7 @@ yargs.command({
     command: 'list',
     describe: 'List all notes',
     handler() {
-        console.log('Fetching all notes!')
+        notes.listNotes();
     }
 })
 

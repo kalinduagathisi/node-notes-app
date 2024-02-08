@@ -61,11 +61,20 @@ const removeNote = (title) => {
    }
 }
 
+const listNotes = () => {
+
+    const notes = loadNotes();
+    notes.forEach((note) => {
+        console.log(note.title);
+    })
+}
+
 // module.exports = getNotes;
 // module.exports = addNote;
 
 module.exports = {
     addNote: addNote,
-    removeNote: removeNote
+    removeNote: removeNote,
+    listNotes: listNotes,
 }
 
